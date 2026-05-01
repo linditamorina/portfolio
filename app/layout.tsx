@@ -1,4 +1,3 @@
-// app/layout.tsx
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -9,6 +8,27 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Lindita Morina | Portfolio",
   description: "Software Engineer Portfolio",
+  icons: {
+    icon: [
+      {
+        url: "/logo-portfolio.png", // Ky përdoret si fallback
+        href: "/logo-portfolio.png",
+      },
+      {
+        url: "/logo-portfolio.png", // Mund të shtosh versionin e prerë këtu
+        sizes: "40x40",
+        type: "image/png",
+      },
+    ],
+    shortcut: ["/logo-portfolio.png"],
+    apple: [
+      {
+        url: "/logo-portfolio.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
