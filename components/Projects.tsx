@@ -86,7 +86,7 @@ export default function Projects() {
 
                     {project.title === "PostoAi" && (
                       <a
-                        href="https://posto-ai-nine.vercel.app/"
+                        href="https://posto-ai-linditamorina.vercel.app/login"
                         target="_blank"
                         className="flex items-center gap-2 text-xs font-black text-brand-green hover:brightness-110 tracking-widest"
                       >
