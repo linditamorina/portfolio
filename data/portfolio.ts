@@ -19,6 +19,20 @@ export const skills = ["JavaScript", "ReactJs", "React Native", "NextJs", "Pytho
 
 export const projects = [
   {
+    title: "Inventory Management System",
+    description: "A modern inventory management system built with Next.js and Supabase. Features real-time stock tracking with a dynamic dashboard (charts), role-based (Admin/Staff) data isolation via Row Level Security (RLS), and automated low-stock notifications.", //[cite: 1, 2, 3, 6, 8]
+    tech: ["Next.js", "Supabase", "Tailwind CSS", "Recharts"],
+    github: "https://github.com/linditamorina/inventory_management.git", // Zëvendësoje me URL-në e saktë nëse e ke
+    liveDemo: null // Ose shtoje nese e ke bere deploy
+  },
+  {
+    title: "Project Vision",
+    description: "A professional full-stack project management platform built with the MERN stack. Features secure JWT authentication for private workspaces, real-time CRUD operations, milestone tracking, and a modern dark-mode UI with glassmorphism design.", //[cite: 1]
+    tech: ["React.js", "Node.js", "Express", "MongoDB", "JWT"],
+    github: "https://github.com/linditamorina/project-management.git",
+    liveDemo: null 
+  },
+  {
     title: "PostoAi",
     description: "An AI-powered marketing automation platform built with Next.js and Supabase. Integrated OpenAI to generate comprehensive social media plans, captions, and visual assets based on business data.", //[cite: 1]
     tech: ["Next.js", "Supabase", "OpenAI"],
