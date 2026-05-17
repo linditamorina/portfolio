@@ -14,7 +14,7 @@ function LanguageToggle() {
 
   const languages: { code: Language; label: string }[] = [
     { code: "en", label: "EN" },
-    { code: "sq", label: "AL" },
+    { code: "al", label: "AL" },
     { code: "tr", label: "TR" },
   ];
 
@@ -176,7 +176,7 @@ export default function Navbar() {
                   }}
                   className="w-full py-4 rounded-xl bg-brand-green text-black text-xs font-black uppercase tracking-wider shadow-lg"
                 >
-                  {t("contact")}
+                  {t("connect_title")}
                 </motion.button>
               </div>
             </motion.div>

@@ -1,7 +1,7 @@
 "use client";
 import React, { createContext, useContext, useState, useEffect } from "react";
 
-export type Language = "en" | "sq" | "tr";
+export type Language = "en" | "al" | "tr";
 
 interface LanguageContextType {
   language: Language;
@@ -29,7 +29,7 @@ const translations: Record<Language, Record<string, string>> = {
     technical_arsenal: "Technical Arsenal",
     work_experience: "Work Experience",
   },
-  sq: {
+  al: {
     home: "Ballina",
     about: "Rreth meje",
     projects: "Projektet",
@@ -64,7 +64,7 @@ const translations: Record<Language, Record<string, string>> = {
 };
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguageState] = useState<Language>("en");
+  const [language, setLanguageState] = useState<Language>("al");
 
   useEffect(() => {
     const savedLang = localStorage.getItem("portfolio-lang") as Language;
@@ -81,7 +81,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   // Funksioni që merr çelësin dhe kthen fjalën e përkthyer
   const t = (key: string) => {
     const lowerKey = key.toLowerCase();
-    return translations[language]?.[lowerKey] || translations["en"]?.[lowerKey] || key;
+    return translations[language]?.[lowerKey] || translations["al"]?.[lowerKey] || key;
   };
 
   return (

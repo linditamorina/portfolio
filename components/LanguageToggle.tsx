@@ -8,7 +8,7 @@ export default function LanguageToggle() {
   const [isOpen, setIsOpen] = useState(false);
 
   const languages = [
-    { code: "sq", label: "AL" },
+    { code: "al", label: "AL" },
     { code: "en", label: "EN" },
     { code: "tr", label: "TR" },
   ];
