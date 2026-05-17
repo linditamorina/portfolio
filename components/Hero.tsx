@@ -2,8 +2,11 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { personalInfo } from "@/data/portfolio";
+import { useLanguage } from "@/components/LanguageContext";
 
 export default function Hero() {
+  const { language, t } = useLanguage();
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-24 pb-12 px-6 relative overflow-hidden">
       <div className="max-w-6xl w-full flex flex-col md:flex-row items-center gap-12 md:gap-20 z-10">
@@ -15,25 +18,25 @@ export default function Hero() {
         >
           <div className="space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-green/20 bg-brand-green/5 text-brand-green text-[10px] font-bold uppercase tracking-widest">
-              Software Engineer
+              {personalInfo.title[language]}
             </div>
             <h1 className="text-5xl md:text-7xl font-black tracking-tight text-slate-900 dark:text-white leading-tight">
               Lindita <span className="text-brand-green">Morina</span>
             </h1>
             <p className="max-w-lg text-base md:text-lg text-slate-600 dark:text-slate-400 font-medium leading-relaxed mx-auto md:mx-0">
-              {personalInfo.about}
+              {personalInfo.about[language]}
             </p>
           </div>
 
           <div className="flex justify-center md:justify-start gap-10 pt-6">
             <div>
-              <p className="text-xl font-bold text-slate-900 dark:text-white">Final Year</p>
-              <p className="text-[10px] text-slate-500 uppercase tracking-widest">Education</p>
+              <p className="text-xl font-bold text-slate-900 dark:text-white">{t("final_year")}</p>
+              <p className="text-[10px] text-slate-500 uppercase tracking-widest">{t("education")}</p>
             </div>
             <div className="w-px h-10 bg-black/10 dark:bg-white/5" />
             <div>
               <p className="text-xl font-bold text-slate-900 dark:text-white">3+</p>
-              <p className="text-[10px] text-slate-500 uppercase tracking-widest">Key Projects</p>
+              <p className="text-[10px] text-slate-500 uppercase tracking-widest">{t("key_projects")}</p>
             </div>
           </div>
         </motion.div>

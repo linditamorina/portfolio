@@ -1,8 +1,11 @@
 "use client";
 import { experience, skills } from "@/data/portfolio";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/components/LanguageContext";
 
 export default function Experience() {
+  const { language, t } = useLanguage();
+
   return (
     <section id="experience" className="py-24 px-4 max-w-5xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
@@ -13,7 +16,7 @@ export default function Experience() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl font-black mb-10 bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-white">
-            Technical Arsenal
+            {t("technical_arsenal")}
           </h2>
           <div className="grid grid-cols-2 gap-4">
             {skills.map((skill) => (
@@ -35,19 +38,19 @@ export default function Experience() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl font-black mb-10 bg-clip-text text-transparent bg-gradient-to-r from-brand-green to-white">
-            Work Experience
+            {t("work_experience")}
           </h2>
           {experience.map((exp, index) => (
             <div key={index} className="relative pl-8 border-l border-brand-green/20">
               <div className="absolute top-0 left-[-5px] w-2.5 h-2.5 rounded-full bg-brand-green shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
               <div className="mb-10">
-                <h3 className="text-xl font-bold text-white mb-1">{exp.role}</h3>
+                <h3 className="text-xl font-bold text-white mb-1">{exp.role[language]}</h3>
                 <div className="flex justify-between items-center mb-4">
                   <span className="text-brand-green text-sm font-medium">{exp.company}</span>
                   <span className="text-gray-500 text-xs font-mono">{exp.period}</span>
                 </div>
                 <p className="text-gray-400 text-sm leading-relaxed">
-                  {exp.description}
+                  {exp.description[language]}
                 </p>
               </div>
             </div>

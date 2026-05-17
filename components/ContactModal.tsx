@@ -3,10 +3,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { personalInfo } from "@/data/portfolio";
 import { Mail, Phone, X, Copy, Check, ExternalLink } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "@/components/LanguageContext";
 
 export default function ContactModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
+  const { t } = useLanguage();
 
   const copyToClipboard = (text: string, type: 'email' | 'phone') => {
     navigator.clipboard.writeText(text);
@@ -20,7 +22,6 @@ export default function ContactModal({ isOpen, onClose }: { isOpen: boolean; onC
   };
 
   const phoneNumber = "+383 45 883 994";
-  // Linku i ri i LinkedIn
   const linkedinUrl = "https://www.linkedin.com/in/linditamorina/";
 
   return (
@@ -51,8 +52,8 @@ export default function ContactModal({ isOpen, onClose }: { isOpen: boolean; onC
               </button>
 
               <div className="mb-8">
-                <h2 className="text-2xl font-black text-slate-900 dark:text-white">Let's Connect</h2>
-                <p className="text-slate-500 text-sm font-medium">I'm usually available for a chat!</p>
+                <h2 className="text-2xl font-black text-slate-900 dark:text-white">{t("connect_title")}</h2>
+                <p className="text-slate-500 text-sm font-medium">{t("connect_subtitle")}</p>
               </div>
               
               <div className="space-y-4">
@@ -110,7 +111,7 @@ export default function ContactModal({ isOpen, onClose }: { isOpen: boolean; onC
                       <Phone size={18} />
                     </div>
                     <div>
-                      <p className="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Phone</p>
+                      <p className="text-[10px] uppercase tracking-widest text-slate-500 font-bold">{t("phone")}</p>
                       <p className="text-sm font-bold text-slate-900 dark:text-white">{phoneNumber}</p>
                     </div>
                   </div>
@@ -125,7 +126,7 @@ export default function ContactModal({ isOpen, onClose }: { isOpen: boolean; onC
               </div>
 
               <div className="mt-8 text-center border-t border-black/5 dark:border-white/5 pt-6">
-                <p className="text-[10px] uppercase tracking-[0.3em] text-slate-400 font-bold">Kosovo • Remote • Hybrid</p>
+                <p className="text-[10px] uppercase tracking-[0.3em] text-slate-400 font-bold">{t("location_modes")}</p>
               </div>
             </div>
           </motion.div>

@@ -2,6 +2,7 @@
 import { projects } from "@/data/portfolio";
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
+import { useLanguage } from "@/components/LanguageContext";
 
 const GithubIcon = () => (
   <svg
@@ -18,6 +19,8 @@ const GithubIcon = () => (
 );
 
 export default function Projects() {
+  const { language, t } = useLanguage();
+
   return (
     <section
       id="projects"
@@ -30,7 +33,7 @@ export default function Projects() {
           viewport={{ once: true }}
           className="text-4xl font-black mb-4 bg-clip-text text-transparent bg-gradient-to-r from-brand-green to-brand-blue"
         >
-          Project Journey
+          {t("projects")}
         </motion.h2>
         <div className="h-1 w-24 bg-brand-green rounded-full opacity-50" />
       </div>
@@ -53,14 +56,14 @@ export default function Projects() {
                 className="w-full md:w-[45%] group"
               >
                 <div className="relative p-8 glass-panel border-black/5 dark:border-white/5 hover:border-brand-green/40 transition-all duration-500 shadow-lg dark:shadow-2xl">
-                  {/* Titulli: I zi në Light Mode, i Bardhë në Dark Mode */}
+                  {/* Titulli */}
                   <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3 group-hover:text-brand-green transition-colors">
-                    {project.title}
+                    {project.title[language]}
                   </h3>
 
-                  {/* Përshkrimi: Gri e errët në Light Mode për lexim më të mirë */}
+                  {/* Përshkrimi */}
                   <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6 font-medium">
-                    {project.description}
+                    {project.description[language]}
                   </p>
 
                   <div className="flex flex-wrap gap-2 mb-8">
@@ -75,19 +78,22 @@ export default function Projects() {
                   </div>
 
                   <div className="flex items-center justify-between pt-5 border-t border-black/5 dark:border-white/5">
-                    {/* GitHub Icon - duhet të jetë e errët në Light Mode */}
+                    {/* GitHub Link */}
                     <a
                       href={project.github}
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all transform hover:scale-110"
                     >
                       <GithubIcon />
                     </a>
 
-                    {project.title === "PostoAi" && (
+                    {/* Live Preview - Shfaqet nëse ekziston liveDemo në portfolio.ts */}
+                    {project.liveDemo && (
                       <a
-                        href="https://posto-ai-linditamorina.vercel.app/login"
+                        href={project.liveDemo}
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="flex items-center gap-2 text-xs font-black text-brand-green hover:brightness-110 tracking-widest"
                       >
                         LIVE PREVIEW <ExternalLink size={14} />
